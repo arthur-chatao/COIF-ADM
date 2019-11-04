@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="arrow-round-back" (click)="back()"></ion-icon> COIF Cadastro
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title> Cadastro Usuario ADM: </ion-card-title>
+    </ion-card-header>
+
+
+
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="floating"> Email </ion-label>
+        <ion-input placeholder=" example: exmple@email.com " [(ngModel)]='pessoa.email'> </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating"> Senha </ion-label>
+        <ion-input type="password" [(ngModel)]='pessoa.senha'> </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Confirmar Senha </ion-label>
+        <ion-input type="password" [(ngModel)]='confirmar'> </ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand="full" shape="round" color="success" (click)='salvar()'> CADASTRAR </ion-button>
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+</ion-content>

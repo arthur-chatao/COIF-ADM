@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    <ion-icon name="book"></ion-icon>
+      COIF-IFPR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-title> ADM IFPR </ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating" shape="round">Email:</ion-label>
+        <ion-input name="nome" [(ngModel)]="usuario.email"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Senha:</ion-label>
+        <ion-input name="senha" type="password" [(ngModel)]="usuario.senha"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand="full" shape="round" (click)="logar()"> Entrar </ion-button>
+      <ion-button expand="full" shape="round" href='usuario-redefinir'> Esqueceu Senha </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-title> Cadastre-se </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button href='gerencia-adm' expand="full" shape="round"> Cadastre-se </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <br>
+
+</ion-content>
