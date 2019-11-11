@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'gerencia-adm', loadChildren: './user/gerencia-adm/gerencia-adm.module#GerenciaAdmPageModule' },
   { path: 'gerencia-mensagens', loadChildren: './user/gerencia-mensagens/gerencia-mensagens.module#GerenciaMensagensPageModule' },
   { path: 'alunos', loadChildren: './cadastros/alunos/alunos.module#AlunosPageModule' },
+  { path: 'curso-salvar', loadChildren: './curso/curso-salvar/curso-salvar.module#CursoSalvarPageModule' },
+  
 ];
 
 @NgModule({
