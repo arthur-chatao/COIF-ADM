@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-title>
 
+
       Cad. Pais e Alunos
 
     </ion-title>
@@ -17,37 +18,39 @@
       <ion-card-title> Informações do Estudante </ion-card-title>
     </ion-card-header>
     <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label> Curso: </ion-label>
+            <ion-select [(ngModel)]="alunos.cursEsc" placeholder="Selecione seu Curso">
+              <ion-select-option *ngFor='let curso of listaCurso | async' [value]="curso">
+                {{curso.sigla}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button expand="full" color="success" href='curso-salvar'> Criar Curso </ion-button>
+        </ion-list>
 
-      <ion-list>
+
+        <br>
+
         <ion-item>
-          <ion-label> Curso: </ion-label>
-          <ion-select [(ngModel)]="bla" placeholder="Selecione seu Curso">
-            <ion-select-option *ngFor='let curso of listaCurso | async' [value]="curso">
-              {{curso.sigla}}
-            </ion-select-option>
-          </ion-select>
+          <ion-label position="floating"> Nome Completo do Aluno </ion-label>
+          <ion-input #nome='ngModel' [(ngModel)]='alunos.nomeAluno'  name='nomeAluno' required> </ion-input>
         </ion-item>
-        <ion-button expand="full" color="success" href='curso-salvar'> Criar Curso </ion-button>
-      </ion-list>
-
-
-      <br>
-
-      <ion-item>
-        <ion-label position="floating"> Nome Completo do Aluno </ion-label>
-        <ion-input [(ngModel)]='nome'> </ion-input>
-      </ion-item>
-      <br>
-      <ion-item>
-        <ion-label position="floating"> N° do RG </ion-label>
-        <ion-input [(ngModel)]='rg'> </ion-input>
-      </ion-item>
-      <br>
-      <ion-item>
-        <ion-label position="floating"> N° do CPF </ion-label>
-        <ion-input [(ngModel)]='cpf'> </ion-input>
-      </ion-item>
-      <br>
+        <span style='color:red' *ngIf="nome.errors && nome.touched">
+          <ion-label> campo obrigatório!</ion-label>
+        </span>
+        <br>
+        <ion-item>
+          <ion-label position="floating"> N° do RG </ion-label>
+          <ion-input [(ngModel)]='alunos.rgAluno'> </ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label position="floating"> N° do CPF </ion-label>
+          <ion-input [(ngModel)]='alunos.cpfAluno'> </ion-input>
+        </ion-item>
+        <br>
     </ion-card-content>
 
 
@@ -61,17 +64,27 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating"> Nome Completo do Responsavel </ion-label>
-        <ion-input [(ngModel)]='nome'> </ion-input>
+        <ion-input [(ngModel)]='alunos.nomeResp'> </ion-input>
       </ion-item>
       <br>
       <ion-item>
         <ion-label position="floating"> N° do RG </ion-label>
-        <ion-input [(ngModel)]='rg'> </ion-input>
+        <ion-input [(ngModel)]='alunos.rgResp'> </ion-input>
       </ion-item>
       <br>
       <ion-item>
         <ion-label position="floating"> N° do CPF </ion-label>
-        <ion-input [(ngModel)]='cpf'> </ion-input>
+        <ion-input [(ngModel)]='alunos.cpfResp'> </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating"> Senha </ion-label>
+        <ion-input type="password" [(ngModel)]='alunos.senhaResp'> </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Confirmar Senha </ion-label>
+        <ion-input type="password" [(ngModel)]='confirm'> </ion-input>
       </ion-item>
       <br>
       <br>
@@ -82,7 +95,7 @@
             <ion-icon name="arrow-round-back"></ion-icon>
             <ion-label>Cancelar</ion-label>
           </ion-button>
-          <ion-button color='success'>
+          <ion-button color='success' (click)='salvar()'>
             <ion-label>Validar</ion-label>
             <ion-icon name="checkmark"></ion-icon>
           </ion-button>
@@ -91,6 +104,7 @@
     </ion-card-content>
 
   </ion-card>
+
 </ion-content>
 
 

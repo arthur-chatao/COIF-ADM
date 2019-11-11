@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Curso } from 'src/app/curso/entidade/curso';
-
+import { Alunos } from '../entidade/alunos';
 
 @Component({
   selector: 'app-alunos',
@@ -13,22 +14,41 @@ import { Curso } from 'src/app/curso/entidade/curso';
 })
 export class AlunosPage implements OnInit {
 
+  alunos: Alunos = new Alunos();
   listaCurso: Observable<Curso[]>;
 
-  constructor(private banco: AngularFireDatabase, private rota: Router, ) {
-		this.listaCurso = this.banco.list<Curso>('curso').snapshotChanges().pipe(
-		map( lista => lista.map(linha => ({ key: linha.payload.key, ... linha.payload.val() })))
-);
-	  }
+  confirm: String;
+  constructor(private banco: AngularFireDatabase, private rota: Router, public alertController: AlertController ) {
+    this.listaCurso = this.banco.list<Curso>('curso').snapshotChanges().pipe(
+      map(lista => lista.map(linha => ({ key: linha.payload.key, ...linha.payload.val() })))
+    );
+  }
 
   ngOnInit() {
   }
 
-  /*salvar() {
-    this.banco.list('usuario').push(this.usuario);
-    this.usuario = new Usuario();
-    this.afAuth.auth.createUserWithEmailAndPassword(this.pessoa.email, this.pessoa.senha);
-    this.rota.navigate(['cadProj']);
-  }*/
+  salvar() {
+    if (this.alunos.senhaResp == this.confirm) {
+      this.banco.list('alunos').push(this.alunos);
+      this.alunos = new Alunos();
+      this.rota.navigate(['gerencia-mensagens']);
+    }
+    else{
+      this.presentAlertlog();
+    }
+
+  }
+
+  async presentAlertlog(){
+
+      const alert = await this.alertController.create({
+        header: 'Erro de Verificação',
+        subHeader: 'As senhas devem ser Identicas',
+        message: "Erro encontrado as senhas não são Iguais",
+        buttons: ['OK']
+      });
+
+    await alert.present();
+  }
 
 }
