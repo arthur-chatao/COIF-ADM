@@ -43,13 +43,19 @@
         <br>
         <ion-item>
           <ion-label position="floating"> N° do RG </ion-label>
-          <ion-input [(ngModel)]='alunos.rgAluno'> </ion-input>
+          <ion-input #rg='ngModel' [(ngModel)]='alunos.rgAluno' name='rgAluno' required> </ion-input>
         </ion-item>
+        <span style='color:red' *ngIf="rg.errors && rg.touched">
+          <ion-label> campo obrigatório!</ion-label>
+        </span>
         <br>
         <ion-item>
           <ion-label position="floating"> N° do CPF </ion-label>
-          <ion-input [(ngModel)]='alunos.cpfAluno'> </ion-input>
+          <ion-input #cpf='ngModel' [(ngModel)]='alunos.cpfAluno' name='cpfAluno' required> </ion-input>
         </ion-item>
+        <span style='color:red' *ngIf="cpf.errors && cpf.touched">
+          <ion-label> campo obrigatório!</ion-label>
+        </span>
         <br>
     </ion-card-content>
 
@@ -64,18 +70,27 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating"> Nome Completo do Responsavel </ion-label>
-        <ion-input [(ngModel)]='alunos.nomeResp'> </ion-input>
+        <ion-input #nResp='ngModel' [(ngModel)]='alunos.nomeResp' name='nomeResp' required> </ion-input>
       </ion-item>
+      <span style='color:red' *ngIf="nResp.errors && nResp.touched">
+        <ion-label> campo obrigatório!</ion-label>
+      </span>
       <br>
       <ion-item>
         <ion-label position="floating"> N° do RG </ion-label>
-        <ion-input [(ngModel)]='alunos.rgResp'> </ion-input>
+        <ion-input #rResp='ngModel' [(ngModel)]='alunos.rgResp' name='rgResp' required> </ion-input>
       </ion-item>
+      <span style='color:red' *ngIf="rResp.errors && rResp.touched">
+        <ion-label> campo obrigatório!</ion-label>
+      </span>
       <br>
       <ion-item>
         <ion-label position="floating"> N° do CPF </ion-label>
-        <ion-input [(ngModel)]='alunos.cpfResp'> </ion-input>
+        <ion-input #cResp='ngModel' [(ngModel)]='alunos.cpfResp' name='cpfResp' required> </ion-input>
       </ion-item>
+      <span style='color:red' *ngIf="cResp.errors && cResp.touched">
+        <ion-label> campo obrigatório!!</ion-label>
+      </span>
       <br>
       <ion-item>
         <ion-label position="floating"> Senha </ion-label>

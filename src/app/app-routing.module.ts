@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'gerencia-mensagens', loadChildren: './user/gerencia-mensagens/gerencia-mensagens.module#GerenciaMensagensPageModule' },
   { path: 'alunos', loadChildren: './cadastros/alunos/alunos.module#AlunosPageModule' },
   { path: 'curso-salvar', loadChildren: './curso/curso-salvar/curso-salvar.module#CursoSalvarPageModule' },
+  { path: 'mensagens-recebidas', loadChildren: './user/mensagens-recebidas/mensagens-recebidas.module#MensagensRecebidasPageModule' },
   
 ];
 

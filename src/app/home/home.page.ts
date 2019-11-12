@@ -22,7 +22,7 @@ export class HomePage {
 
   logar() {
     this.afAuth.auth.signInWithEmailAndPassword(this.usuario.email, this.usuario.senha).then(
-      () => { this.router.navigate(['gerencia-mensagens']); }
+      () => { this.router.navigate(['mensagens-recebidas']); }
     ).catch((erro) => this.presentAlertlog(erro));
   }
 
