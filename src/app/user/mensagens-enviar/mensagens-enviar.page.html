@@ -14,7 +14,7 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Cpf do Responsavel/Destinatario </ion-label>
-        <ion-input #cResp='ngModel' [(ngModel)]='bleh' name='cResp' required> </ion-input>
+        <ion-input #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
         <ion-label> campo obrigatório!</ion-label>
@@ -22,7 +22,7 @@
       <br>
       <ion-item>
         <ion-label position="floating"> Mensagem </ion-label>
-        <ion-input #mEnv='ngModel' [(ngModel)]='cu' name='mEnv' required> </ion-input>
+        <ion-input #mEnv='ngModel' [(ngModel)]='enviosAdm.mensagem' name='mEnv' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="mEnv.errors && mEnv.touched">
         <ion-label> campo obrigatório!</ion-label>
@@ -32,13 +32,14 @@
   <br>
   <br>
   <br>
+  <br>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-button color='danger' href='gerencia-mensagens'>
         <ion-icon name="arrow-round-back"></ion-icon>
         <ion-label>Cancelar</ion-label>
       </ion-button>
-      <ion-button color='success'>
+      <ion-button color='success' (click)='salvar()'>
         <ion-label>Validar</ion-label>
         <ion-icon name="checkmark"></ion-icon>
       </ion-button>
