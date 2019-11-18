@@ -13,16 +13,24 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating">Cpf do Responsavel/Destinatario </ion-label>
-        <ion-input #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' required> </ion-input>
+        <ion-label position="floating"> Cpf do Responsável </ion-label>
+        <ion-input #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' maxlength='11' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
         <ion-label> campo obrigatório!</ion-label>
       </span>
       <br>
       <ion-item>
+        <ion-label position="floating"> Nome do Responsável </ion-label>
+        <ion-input #nomeDest='ngModel' [(ngModel)]='enviosAdm.nomeDest' name='nomeDest' required> </ion-input>
+      </ion-item>
+      <span style='color:red' *ngIf="nomeDest.errors && nomeDest.touched">
+        <ion-label> campo obrigatório!</ion-label>
+      </span>
+      <br>
+      <ion-item>
         <ion-label position="floating"> Mensagem </ion-label>
-        <ion-input #mEnv='ngModel' [(ngModel)]='enviosAdm.mensagem' name='mEnv' required> </ion-input>
+        <ion-textarea #mEnv='ngModel' [(ngModel)]='enviosAdm.mensagem' name='mEnv' required> </ion-textarea>
       </ion-item>
       <span style='color:red' *ngIf="mEnv.errors && mEnv.touched">
         <ion-label> campo obrigatório!</ion-label>

@@ -7,4 +7,5 @@ export class Alunos {
   rgResp: String;
   cpfResp: String;
   senhaResp: String;
+  telResp: String;
 }

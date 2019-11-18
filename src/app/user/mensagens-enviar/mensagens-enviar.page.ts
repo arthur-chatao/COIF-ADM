@@ -32,7 +32,7 @@ export class MensagensEnviarPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Enviada com Sucesso',
         subHeader: 'Mensagem entregue ao destinatario',
-        message: "Aguarde até que o resonsavel autorize!",
+        message: "Aguarde até que o responsável autorize!",
         buttons: ['OK']
       });
 

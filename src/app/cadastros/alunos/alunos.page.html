@@ -43,7 +43,7 @@
         <br>
         <ion-item>
           <ion-label position="floating"> N° do RG </ion-label>
-          <ion-input #rg='ngModel' [(ngModel)]='alunos.rgAluno' name='rgAluno' required> </ion-input>
+          <ion-input #rg='ngModel' [(ngModel)]='alunos.rgAluno' name='rgAluno' maxlength='9' required> </ion-input>
         </ion-item>
         <span style='color:red' *ngIf="rg.errors && rg.touched">
           <ion-label> campo obrigatório!</ion-label>
@@ -51,7 +51,7 @@
         <br>
         <ion-item>
           <ion-label position="floating"> N° do CPF </ion-label>
-          <ion-input #cpf='ngModel' [(ngModel)]='alunos.cpfAluno' name='cpfAluno' required> </ion-input>
+          <ion-input #cpf='ngModel' [(ngModel)]='alunos.cpfAluno' name='cpfAluno' maxlength='11' required> </ion-input>
         </ion-item>
         <span style='color:red' *ngIf="cpf.errors && cpf.touched">
           <ion-label> campo obrigatório!</ion-label>
@@ -65,11 +65,11 @@
 
   <ion-card color="primary">
     <ion-card-header>
-      <ion-card-title> Informações do Responsavel </ion-card-title>
+      <ion-card-title> Informações do Responsável </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating"> Nome Completo do Responsavel </ion-label>
+        <ion-label position="floating"> Nome Completo do Responsável </ion-label>
         <ion-input #nResp='ngModel' [(ngModel)]='alunos.nomeResp' name='nomeResp' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="nResp.errors && nResp.touched">
@@ -78,7 +78,7 @@
       <br>
       <ion-item>
         <ion-label position="floating"> N° do RG </ion-label>
-        <ion-input #rResp='ngModel' [(ngModel)]='alunos.rgResp' name='rgResp' required> </ion-input>
+        <ion-input #rResp='ngModel' [(ngModel)]='alunos.rgResp' name='rgResp' maxlength='11' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="rResp.errors && rResp.touched">
         <ion-label> campo obrigatório!</ion-label>
@@ -86,9 +86,17 @@
       <br>
       <ion-item>
         <ion-label position="floating"> N° do CPF </ion-label>
-        <ion-input #cResp='ngModel' [(ngModel)]='alunos.cpfResp' name='cpfResp' required> </ion-input>
+        <ion-input #cResp='ngModel' [(ngModel)]='alunos.cpfResp' name='cpfResp' maxlength='9' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
+        <ion-label> campo obrigatório!!</ion-label>
+      </span>
+      <br>
+      <ion-item>
+        <ion-label position="floating"> Telefone</ion-label>
+        <ion-input #telResp='ngModel' [(ngModel)]='alunos.telResp' name='telResp' required> </ion-input>
+      </ion-item>
+      <span style='color:red' *ngIf="telResp.errors && telResp.touched">
         <ion-label> campo obrigatório!!</ion-label>
       </span>
       <br>
