@@ -1,3 +1,4 @@
+import { BrMasker4Module } from 'brmasker4';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    BrMasker4Module,
     RouterModule.forChild(routes)
   ],
   declarations: [MensagensEnviarPage]

@@ -14,7 +14,7 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating"> Cpf do Responsável </ion-label>
-        <ion-input #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' maxlength='11' required> </ion-input>
+        <ion-input type="text" #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' [brmasker]="{person: true}" value=""></ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
         <ion-label> campo obrigatório!</ion-label>
