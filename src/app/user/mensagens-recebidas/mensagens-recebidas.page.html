@@ -58,6 +58,23 @@
 
 
 <ion-content>
+  <ion-card *ngFor="let respostasUsers of listaResp | async">
+    <ion-card-header>
+      Autorizção de Saida de Alunos
+    </ion-card-header>
+    <ion-card-content>
+      {{ respostasUsers.dia | date: 'dd/MM/yyyy'}}
+      <br>
+      Autoriuzado?
+     {{ respostasUsers.autori }}
+        <br>
+      Responsavel?
+       {{ respostasUsers.nomeR }}
+       <br>
+       Quem buscara:
+       {{ respostasUsers.carona }}
+    </ion-card-content>
+  </ion-card>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button href='gerencia-mensagens'>
       <ion-icon name='ios-add-circle'></ion-icon>
