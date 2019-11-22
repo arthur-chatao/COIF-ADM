@@ -14,7 +14,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { BrMasker4Module } from 'brmasker4';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,7 @@ import { BrMasker4Module } from 'brmasker4';
     messagingSenderId: "489167400293",
     appId: "1:489167400293:web:4eb3718f1c511b9893058c",
     measurementId: "G-M35GVBVMM7"
-  }), AngularFireDatabaseModule, BrMasker4Module ],
+  }), AngularFireDatabaseModule,],
   providers: [
     AngularFireAuth,
     StatusBar,

@@ -43,7 +43,7 @@
         <br>
         <ion-item>
           <ion-label position="floating"> N° do RG </ion-label>
-          <ion-input #rg='ngModel' [(ngModel)]='alunos.rgAluno' name='rgAluno' maxlength='9' required> </ion-input>
+          <ion-input #rg='ngModel' [(ngModel)]='alunos.rgAluno' name='rgAluno' [brmasker]="{mask:'00.000.000-0', len:12, userCaracters: true}" maxlength='12' required> </ion-input>
         </ion-item>
         <span style='color:red' *ngIf="rg.errors && rg.touched">
           <ion-label> campo obrigatório!</ion-label>
@@ -51,7 +51,7 @@
         <br>
         <ion-item>
           <ion-label position="floating"> N° do CPF </ion-label>
-          <ion-input #cpf='ngModel' [(ngModel)]='alunos.cpfAluno' name='cpfAluno' maxlength='11' required> </ion-input>
+          <ion-input #cpf='ngModel' [(ngModel)]='alunos.cpfAluno' name='cpfAluno' [brmasker]="{person: true}"  maxlength='14' required> </ion-input>
         </ion-item>
         <span style='color:red' *ngIf="cpf.errors && cpf.touched">
           <ion-label> campo obrigatório!</ion-label>
@@ -78,7 +78,7 @@
       <br>
       <ion-item>
         <ion-label position="floating"> N° do RG </ion-label>
-        <ion-input #rResp='ngModel' [(ngModel)]='alunos.rgResp' name='rgResp' maxlength='11' required> </ion-input>
+        <ion-input #rResp='ngModel' [(ngModel)]='alunos.rgResp' name='rgResp' [brmasker]="{mask:'00.000.000-0', len:12, userCaracters: true}" maxlength='12' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="rResp.errors && rResp.touched">
         <ion-label> campo obrigatório!</ion-label>
@@ -86,7 +86,7 @@
       <br>
       <ion-item>
         <ion-label position="floating"> N° do CPF </ion-label>
-        <ion-input #cResp='ngModel' [(ngModel)]='alunos.cpfResp' name='cpfResp' maxlength='9' required> </ion-input>
+        <ion-input #cResp='ngModel' [(ngModel)]='alunos.cpfResp' name='cpfResp' [brmasker]="{person: true}" maxlength='14' required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
         <ion-label> campo obrigatório!!</ion-label>
@@ -94,7 +94,7 @@
       <br>
       <ion-item>
         <ion-label position="floating"> Telefone</ion-label>
-        <ion-input #telResp='ngModel' [(ngModel)]='alunos.telResp' name='telResp' required> </ion-input>
+        <ion-input #telResp='ngModel' [(ngModel)]='alunos.telResp' name='telResp' placeholder='(xx) xxxx-xxxx' [brmasker]="{phone: true}" required> </ion-input>
       </ion-item>
       <span style='color:red' *ngIf="telResp.errors && telResp.touched">
         <ion-label> campo obrigatório!!</ion-label>

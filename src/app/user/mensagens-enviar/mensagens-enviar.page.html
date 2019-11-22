@@ -9,12 +9,18 @@
 <ion-content>
   <ion-card color="primary">
     <ion-card-header>
-      <ion-card-title> Informações para Mensagem </ion-card-title>
+      <ion-card-title> Informações para Mensagem:</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-datetime display-format="DD-MM-YYYY" [(ngModel)]="enviosAdm.data"></ion-datetime>
+      </ion-item>
+
+      <br>
+      <ion-item>
         <ion-label position="floating"> Cpf do Responsável </ion-label>
-        <ion-input type="text" #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' [brmasker]="{person: true}" value=""></ion-input>
+        <ion-input type="text" #cResp='ngModel' [(ngModel)]='enviosAdm.cpfDest' name='cResp' maxlength='14' [brmasker]="{person: true}"></ion-input>
       </ion-item>
       <span style='color:red' *ngIf="cResp.errors && cResp.touched">
         <ion-label> campo obrigatório!</ion-label>
@@ -35,22 +41,22 @@
       <span style='color:red' *ngIf="mEnv.errors && mEnv.touched">
         <ion-label> campo obrigatório!</ion-label>
       </span>
-    </ion-card-content>
-  </ion-card>
-  <br>
-  <br>
-  <br>
-  <br>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-button color='danger' href='gerencia-mensagens'>
-        <ion-icon name="arrow-round-back"></ion-icon>
-        <ion-label>Cancelar</ion-label>
-      </ion-button>
-      <ion-button color='success' (click)='salvar()'>
+      <br>
+      <ion-button expand='full' color='success' (click)='salvar()'>
         <ion-label>Validar</ion-label>
         <ion-icon name="checkmark"></ion-icon>
       </ion-button>
-    </ion-tab-bar>
-  </ion-tabs>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+  <ion-button expand='full' color='danger' href='gerencia-mensagens'>
+    <ion-icon name="arrow-round-back"></ion-icon>
+    <ion-label>Cancelar</ion-label>
+  </ion-button>
+
+
+
+
 </ion-content>
