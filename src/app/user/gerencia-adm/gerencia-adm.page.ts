@@ -20,7 +20,7 @@ export class GerenciaAdmPage implements OnInit {
   salvar() {
     if(this.pessoa.senha ==  this.confirmar){
       this.afAuth.auth.createUserWithEmailAndPassword(this.pessoa.email, this.pessoa.senha);
-      this.router.navigate(['home']);
+      this.router.navigate(['gerencia-mensagens']);
     }
 
     else{

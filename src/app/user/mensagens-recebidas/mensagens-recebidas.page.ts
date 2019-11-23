@@ -20,7 +20,8 @@ export class MensagensRecebidasPage implements OnInit {
 
 
   constructor(private menu: MenuController,private afAuth: AngularFireAuth, private router: Router,private fire: AngularFireDatabase){
-    this.listaResp = this.fire.list<Renv>('respostasUsers').snapshotChanges().pipe(
+    this.listaResp = this.fire.list<Renv>('respostasUsers', ref =>
+      ref.orderByChild("dia").limitToLast(15)).snapshotChanges().pipe(
     map(lista => lista.map(linha => ({
       key: linha.payload.key, ...linha.payload.val()
     })))
